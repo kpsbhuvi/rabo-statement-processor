@@ -1,0 +1,9 @@
+C:\Rabo\RaboCustStmtProcessor\src\main\java\com\rabobank\rabocuststmtprocessor\util\ReaderIdentifier.java
+C:\Rabo\RaboCustStmtProcessor\src\main\java\com\rabobank\rabocuststmtprocessor\filereader\StatementReader.java
+C:\Rabo\RaboCustStmtProcessor\src\main\java\com\rabobank\rabocuststmtprocessor\RaboCustStmtProcessorApplication.java
+C:\Rabo\RaboCustStmtProcessor\src\main\java\com\rabobank\rabocuststmtprocessor\bean\StmtRecord.java
+C:\Rabo\RaboCustStmtProcessor\src\main\java\com\rabobank\rabocuststmtprocessor\filereaderimpl\CsvReader.java
+C:\Rabo\RaboCustStmtProcessor\src\main\java\com\rabobank\rabocuststmtprocessor\exception\UploadException.java
+C:\Rabo\RaboCustStmtProcessor\src\main\java\com\rabobank\rabocuststmtprocessor\filereaderimpl\XMLReader.java
+C:\Rabo\RaboCustStmtProcessor\src\main\java\com\rabobank\rabocuststmtprocessor\controller\RestStatementProcessor.java
+C:\Rabo\RaboCustStmtProcessor\src\main\java\com\rabobank\rabocuststmtprocessor\service\UploadService.java

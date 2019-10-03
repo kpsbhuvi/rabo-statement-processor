@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.rabobank.rabocuststmtprocessor.RaboCustStmtProcessorApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 45.55 s - in com.rabobank.rabocuststmtprocessor.RaboCustStmtProcessorApplicationTests

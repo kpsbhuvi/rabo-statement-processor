@@ -1,0 +1,9 @@
+com\rabobank\rabocuststmtprocessor\controller\RestStatementProcessor.class
+com\rabobank\rabocuststmtprocessor\RaboCustStmtProcessorApplication.class
+com\rabobank\rabocuststmtprocessor\service\UploadService.class
+com\rabobank\rabocuststmtprocessor\util\ReaderIdentifier.class
+com\rabobank\rabocuststmtprocessor\filereaderimpl\XMLReader.class
+com\rabobank\rabocuststmtprocessor\filereader\StatementReader.class
+com\rabobank\rabocuststmtprocessor\bean\StmtRecord.class
+com\rabobank\rabocuststmtprocessor\exception\UploadException.class
+com\rabobank\rabocuststmtprocessor\filereaderimpl\CsvReader.class

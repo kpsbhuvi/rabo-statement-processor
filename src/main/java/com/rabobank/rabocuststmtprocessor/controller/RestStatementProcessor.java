@@ -15,7 +15,7 @@ import com.rabobank.rabocuststmtprocessor.bean.StmtRecord;
 import com.rabobank.rabocuststmtprocessor.service.UploadService;
 
 @RestController
-@CrossOrigin(origins = "**")
+@CrossOrigin(origins = "*", allowedHeaders="*")
 public class RestStatementProcessor {
 	@Autowired
 	private UploadService uploadService;
