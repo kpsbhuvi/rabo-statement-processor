@@ -1,7 +1,9 @@
 # rabo-statement-processor
 Rabo Bank customer statement processor
 Requirements:
+
 Java 8
+
 Maven to build project
 
 Note: Spring and Angular code will be bundled in single jar file. build angular into production mode and replace the dist files into spring boot staic folder.
@@ -22,5 +24,8 @@ To run the application please follow below steps,
 6. export failed stmts
 7. Filter options
 8. note info about in which criteria the uploaded file failed
+9. Docker containerization
 
 
+Contact:
+Any queries please contact kpsbhuvi@gmail.com
