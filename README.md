@@ -19,12 +19,11 @@ To run the application please follow below steps,
 1. Logging files
 2. clean up the old upload file directory
 3. ENV specific properties
-4. Junits
-5. Maintain failed stmt history
-6. export failed stmts
-7. Filter options
-8. note info about in which criteria the uploaded file failed
-9. Docker containerization
+4. Maintain failed stmt history
+5. export failed stmts
+6. Filter options
+7. note info about in which criteria the uploaded file failed
+8. Docker containerization
 
 
 Contact:
