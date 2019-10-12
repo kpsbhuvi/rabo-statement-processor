@@ -2,15 +2,6 @@ package com.rabobank.rabocuststmtprocessor.bean;
 
 import java.math.BigDecimal;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
 public class StmtRecord {
 	private Integer transactionRef;
 	private String accountNum;
@@ -58,6 +49,63 @@ public class StmtRecord {
 	public String toString() {
 		return "StmtRecord [transactionRef=" + transactionRef + ", accountNum=" + accountNum + ", desc=" + desc
 				+ ", startBal=" + startBal + ", endBal=" + endBal + ", mutation=" + mutation + "]";
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((accountNum == null) ? 0 : accountNum.hashCode());
+		result = prime * result + ((desc == null) ? 0 : desc.hashCode());
+		result = prime * result + ((endBal == null) ? 0 : endBal.hashCode());
+		result = prime * result + ((mutation == null) ? 0 : mutation.hashCode());
+		result = prime * result + ((startBal == null) ? 0 : startBal.hashCode());
+		result = prime * result + ((transactionRef == null) ? 0 : transactionRef.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		StmtRecord other = (StmtRecord) obj;
+		if (accountNum == null) {
+			if (other.accountNum != null)
+				return false;
+		} else if (!accountNum.equals(other.accountNum))
+			return false;
+		if (desc == null) {
+			if (other.desc != null)
+				return false;
+		} else if (!desc.equals(other.desc)){
+			System.out.println("DESC not match");
+			System.out.println("desc = "+desc);
+			System.out.println("other.desc = "+other.desc);
+			return false;
+		}
+		if (endBal == null) {
+			if (other.endBal != null)
+				return false;
+		} else if (!endBal.equals(other.endBal))
+			return false;
+		if (mutation == null) {
+			if (other.mutation != null)
+				return false;
+		} else if (!mutation.equals(other.mutation))
+			return false;
+		if (startBal == null) {
+			if (other.startBal != null)
+				return false;
+		} else if (!startBal.equals(other.startBal))
+			return false;
+		if (transactionRef == null) {
+			if (other.transactionRef != null)
+				return false;
+		} else if (!transactionRef.equals(other.transactionRef))
+			return false;
+		return true;
 	}
 	
 	

@@ -6,10 +6,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.rabobank.rabocuststmtprocessor.bean.StmtRecord;
+import com.rabobank.rabocuststmtprocessor.service.UploadService;
 
 public final class StmtValidator {
 
+	final static Logger logger = LoggerFactory.getLogger(UploadService.class);
+	
 	private StmtValidator() {
 	    //No instances of this class
 	}
@@ -28,15 +34,15 @@ public final class StmtValidator {
 			      .flatMap(Collection::stream)
 			      .collect(Collectors.toList());
 		
-		System.out.println("duplicateStmtRecordList = "+duplicateStmtRecordList);
+		logger.info("duplicateStmtRecordList = "+duplicateStmtRecordList);
 		
 		errorStmtRecordList = stmtRecordsList.stream()
 				.filter(record -> record.getEndBal().compareTo(record.getStartBal().add(record.getMutation())) != 0)
 				.collect(Collectors.toList());
 		
-		System.out.println("errorStmtRecordList = "+errorStmtRecordList);
+		logger.info("errorStmtRecordList = "+errorStmtRecordList);
 		
-		//stmtRecordsList.stream().forEach(record -> System.out.println(record.getTransactionRef()+" - "+(record.getStartBal().add(record.getMutation()))));
+		//stmtRecordsList.stream().forEach(record -> logger.info(record.getTransactionRef()+" - "+(record.getStartBal().add(record.getMutation()))));
 		
 		duplicateStmtRecordList.addAll(errorStmtRecordList);
 		

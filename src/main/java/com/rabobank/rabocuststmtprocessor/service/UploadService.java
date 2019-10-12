@@ -6,7 +6,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -22,6 +25,9 @@ import com.rabobank.rabocuststmtprocessor.util.StmtValidator;
 @Service
 public class UploadService {
 	
+	final static Logger logger = LoggerFactory.getLogger(UploadService.class);
+
+	
 	@Value("${statement.upload.location}")
 	private Path rootLocation;
 	
@@ -30,10 +36,10 @@ public class UploadService {
 	
 	public List<StmtRecord> store(MultipartFile file) {
 		
-		System.out.println("rootLocation = "+rootLocation);
+		logger.info("rootLocation = "+rootLocation);
 		
 		String filename = StringUtils.cleanPath(file.getOriginalFilename());
-		System.out.println("filename = "+filename);
+		logger.info("filename = "+filename);
 		try {
 			if (file.isEmpty()) {
 				throw new UploadException("Failed to store empty file " + filename);
@@ -47,9 +53,17 @@ public class UploadService {
 				Files.copy(inputStream, this.rootLocation.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
 			}
 			
-			
+			// Get reader
 			StatementReader reader = getReader.getReader(filename);
-			return StmtValidator.validateUploadedStmt(reader.getStmtRecords(new String(Files.readAllBytes(this.rootLocation.resolve(filename)))));
+			
+			String content = new String(Files.readAllLines(this.rootLocation.resolve(filename)).stream()
+					.collect(Collectors.joining("\r\n")));
+			
+			logger.info("content = "+content);
+			
+			List<StmtRecord> recordList = reader.getStmtRecords(content);
+			logger.info("recordList = "+recordList);
+			return StmtValidator.validateUploadedStmt(recordList);
 			
 		} catch (IOException e) {
 			throw new UploadException("Failed to store file " + filename, e);

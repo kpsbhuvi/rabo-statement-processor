@@ -26,7 +26,7 @@ public class RestStatementProcessor {
 
 		Optional<List<StmtRecord>> fileContent = Optional.ofNullable(uploadService.store(file));
         redirectAttributes.addFlashAttribute("message",
-                "You successfully uploaded " + file.getOriginalFilename() + "!");
+                "You have uploaded " + file.getOriginalFilename() + " file Successfully!");
 
         return fileContent.get();
     }
